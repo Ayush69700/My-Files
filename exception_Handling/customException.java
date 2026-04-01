@@ -1,0 +1,84 @@
+import java.util.Scanner;
+
+class InsufficientBalanceException extends Exception {
+    int amount;
+
+    public InsufficientBalanceException(int amount){
+        this.amount = amount;
+    }
+
+    public String toString(){
+        return "Insufficient Balance: " + amount;
+    }
+}
+
+class HDFC_Bank_ATM {
+    int bal = 10000;
+
+    public void withdraw(int amount) throws InsufficientBalanceException {
+        if(amount > bal){
+            throw new InsufficientBalanceException(amount);
+        } else {
+            System.out.println("Withdrawal amount: " + amount + " Successful!");
+            bal = bal - amount;
+        }
+    }
+}
+
+class HDFCBank {
+    public static void main(String[] args){
+        int a;
+        Scanner s = new Scanner(System.in);
+
+        try {
+            System.out.println("Enter the amount to withdraw");
+            a = s.nextInt();
+
+            HDFC_Bank_ATM hb = new HDFC_Bank_ATM();
+            hb.withdraw(a);
+
+        } catch (InsufficientBalanceException ae) {
+            System.out.println(ae.toString());
+        }
+    }
+}
+
+// New Program:
+class MOBException extends Exception
+{
+	public MOBException(int m){
+		System.out.println("Marks out of Bound!, " + m + " is greater than 50.");
+	}
+}
+
+class Result
+{
+	int max_m = 60;
+	public void checkMarks(int m) throws MOBException{
+		if(m > max_m){
+			throw new MOBException(m);
+		}
+		else{
+			System.out.println("You have " + m + "marks.");
+		}
+	}
+}
+
+class Admin
+{
+	public static void main(String[] args){
+		int m;
+		Result r = new Result();
+	
+		try {
+			Scanner s = new Scanner(System.in);
+			System.out.print("Enter marks of sub: ");
+			m = s.nextInt();
+			r.checkMarks(m);
+		}
+		catch (MOBException mex){
+			System.out.println(mex);
+		}
+	}
+}
+	

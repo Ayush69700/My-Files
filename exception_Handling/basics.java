@@ -1,0 +1,59 @@
+import java.io.*;
+import java.util.Scanner;
+
+class Main
+{
+	public static void main(String args[]) throws IOException{
+		InputStreamReader isr = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(isr);
+		int a, b, c;
+		System.out.print("Enter two Numbers: ");
+		a = Integer.parseInt(br.readLine());
+		b = Integer.parseInt(br.readLine());
+		try{
+			c = a/b;
+			System.out.print("Division is " + c);
+		}
+		catch (ArithmeticException e){
+			System.out.println("Error:Division by 0!");
+		}
+		// For array index out of bounds:
+		// ArrayIndexOutOfBoundsException
+		
+		System.out.print("Enter an index to access in  the array: ");
+		int index = Integer.parseInt(br.readLine());
+		int k[] = {1, 2, 3, 4};
+		try{
+			System.out.println(k[index]);
+		}
+		catch(ArrayIndexOutOfBoundsException ae) {
+			System.out.println("Array index out of bounds!");
+		}
+
+		// We can also add multiple catch blocks 
+
+		// throw() & throws()
+
+	}
+}
+
+class ThrowDemo
+{
+	public static void main(String[] args){
+		String s = "DJSCE";
+		int len = s.length();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the character index to print");
+		int i = sc.nextInt();
+		try{
+			System.out.println(s.charAt(i));
+		}
+
+		catch (StringIndexOutOfBoundsException e){
+			System.out.println(e);
+		}
+		System.out.println("Java is a Robust Language!");
+	}
+}
+		
+
