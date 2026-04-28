@@ -11,6 +11,7 @@ class JFrameDemo {
     jf.setTitle("Swings Frame"); // Sets the title of the JFrame
     jf.setVisible(true); // Makes the Frame visible
     jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    jf.setResizable(false);
 
     // Changing the Logo of the window:
     ImageIcon icon = new ImageIcon("logo.jpg");
